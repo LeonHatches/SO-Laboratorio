@@ -39,6 +39,7 @@ void * matrizporescalar(void *arg) {
             sleep (5);
         }
     }
+    return NULL;
 }
 int main(int argc, char *argv[]) {
     pthread_t h1;

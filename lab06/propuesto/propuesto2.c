@@ -38,7 +38,7 @@ void* matrizporescalar(void* arg) {
     }
     return NULL;
 }
-// Ejecuta multiplicacion y visualizacion paralela
+// Muestra la matriz despues de terminar la multiplicacion
 int main() {
     pthread_t h1, h2;
     struct parametros p1;

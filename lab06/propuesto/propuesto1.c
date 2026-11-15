@@ -32,7 +32,10 @@ int main() {
     struct parametros params[3];
     float escalar;
     printf("Ingrese escalar N: ");
-    scanf("%f", &escalar);
+    if (scanf("%f", &escalar) != 1) {
+        fputs("Escalar invalido.\n", stderr);
+        return EXIT_FAILURE;
+    }
     init(matriz);
     for (int i = 0; i < 3; i++) {
         params[i].id = i + 1;

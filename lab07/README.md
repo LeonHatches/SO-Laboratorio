@@ -1,5 +1,7 @@
 # Laboratorio 07 - Exclusion Mutua con Mutex (PThreads)
 
+Desde la carpeta que contiene `capturas.sh`, ejecuta `bash capturas.sh mutex` para obtener una muestra de las líneas completas de ambos hilos del resuelto 2.
+
 ## Resuelto
 
 ### resuelto1.c

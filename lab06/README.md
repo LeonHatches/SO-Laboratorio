@@ -1,54 +1,29 @@
-# Laboratorio 06 - Threads en C (PThreads)
+# Laboratorio 06 - Hilos POSIX
 
-## Resuelto
+Desde la carpeta que contiene `capturas.sh`, ejecuta estos comandos en Linux:
 
-### code1.c
 ```bash
-gcc resuelto/code1.c -lpthread -o resuelto/code1
-./resuelto/code1
-```
-Resultado esperado:
-```text
-Padre: 1
-Padre: 2
-...
-Hijo: 1
-Hijo: 0
-Hijo: -1
-...
+bash capturas.sh join
+bash capturas.sh tiempos
+bash capturas.sh cuestionario
 ```
 
-### ejercicio6_procesos.c
-```bash
-gcc resuelto/ejercicio6_procesos.c -o resuelto/ejercicio6_procesos
-./resuelto/ejercicio6_procesos
-```
-Resultado esperado:
-```text
-377.260000
-```
+El primero muestra cuántas líneas del hilo secundario aparecen con y sin
+`pthread_join`. El segundo mide 100 y 200 ciclos de crear y esperar a un
+proceso o un hilo, e imprime el promedio en microsegundos por ciclo. El
+tercero imprime una muestra y los cinco resultados del cuestionario.
+La salida completa se guarda en `lab06/salida_cuestionario3.txt`. La carrera
+de datos en ese ejemplo se conserva a propósito para observarla.
 
-### ejercicio6_hilos.c
-```bash
-gcc resuelto/ejercicio6_hilos.c -lpthread -o resuelto/ejercicio6_hilos
-./resuelto/ejercicio6_hilos
-```
-Resultado esperado:
-```text
-58.750000
-```
+Los demás resueltos se ejecutan desde esta carpeta. `code1.c` conserva el
+ejemplo de la guía. En `Ejercicio_Matriz.c`, el hilo principal imprime la
+matriz antes y después de multiplicarla por 5.
 
-### Ejercicio_Matriz.c
 ```bash
-gcc resuelto/Ejercicio_Matriz.c -lpthread -o resuelto/Ejercicio_Matriz
-./resuelto/Ejercicio_Matriz
-```
-Resultado esperado:
-```text
- Hilo 1 multiplicando fila 0
- Hilo 1 multiplicando fila 1
- Hilo 1 multiplicando fila 2
-Fin 
+gcc -std=gnu11 -pthread resuelto/code1.c -o /tmp/lab06-code1
+/tmp/lab06-code1
+gcc -std=gnu11 -pthread resuelto/Ejercicio_Matriz.c -o /tmp/lab06-matriz
+/tmp/lab06-matriz
 ```
 
 ## Propuesto
@@ -92,11 +67,4 @@ gcc propuesto/propuesto3.c -lpthread -o propuesto/propuesto3
 gcc propuesto/propuesto3_secuencial.c -o propuesto/propuesto3_secuencial
 ./propuesto/propuesto3_secuencial
 ```
-Resultado esperado:
-```text
-Suma total (4 hilos): 300188
-Tiempo paralelo: 783 microsegundos
-
-Suma total (secuencial): 300188
-Tiempo secuencial: 16 microsegundos
-```
+En Linux con glibc, ambos programas producen 300188. Los tiempos dependen del entorno. En las capturas del informe se obtuvieron 213 µs en paralelo y 5 µs en secuencial.
