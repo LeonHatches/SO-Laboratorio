@@ -18,6 +18,15 @@ void init (float m [3][3]) {
         }
     }
 }
+// Muestra contenido de la matriz
+void mostrar(float m[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%.2f\t", m[i][j]);
+        }
+        printf("\n");
+    }
+}
 void * matrizporescalar(void *arg) {
     struct parametros *p;
     int i;
@@ -37,7 +46,11 @@ int main(int argc, char *argv[]) {
     p1.id = 1;
     p1.escalar = 5.0;
     init (p1.matriz );
+    printf("Matriz antes:\n");
+    mostrar(p1.matriz);
     pthread_create (&h1, NULL, matrizporescalar, (void *)&p1);
     pthread_join(h1, NULL);
+    printf("Matriz despues:\n");
+    mostrar(p1.matriz);
     printf ("Fin \n");
 }

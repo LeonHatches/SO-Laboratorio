@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #define N 6000
 int lista[N];
 // Calcula suma secuencial con tiempos

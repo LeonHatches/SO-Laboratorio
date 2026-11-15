@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #include <pthread.h>
 struct timeval t0, t1;
 double media = 0.0;
